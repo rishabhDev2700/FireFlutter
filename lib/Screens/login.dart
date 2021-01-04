@@ -8,6 +8,7 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthService _auth = AuthService();
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Login / Register",
             style: TextStyle(
@@ -23,7 +24,9 @@ class Login extends StatelessWidget {
           TextField(
             controller: _mailController,
             decoration: InputDecoration(
-                labelText: 'E-mail', prefixIcon: Icon(Icons.person)),
+                hoverColor: Colors.white,
+                labelText: 'E-mail',
+                prefixIcon: Icon(Icons.person)),
             maxLength: 50,
           ),
           TextField(
@@ -46,19 +49,16 @@ class Login extends StatelessWidget {
                   if (result != null) {
                     print("Signed in successfully");
                     Navigator.pushNamed(context, "/home");
-                  } else {
-                    print("Error Signing in");
-                  }
+                  } else {}
                 },
                 child: Text("Login"),
               ),
-              Icon(Icons.arrow_back),
-              Icon(Icons.circle),
-              Icon(Icons.arrow_forward),
               RaisedButton(
                   elevation: 6,
                   padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/register");
+                  },
                   child: Text("Register"))
             ],
           ),

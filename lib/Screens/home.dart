@@ -1,3 +1,4 @@
+import 'package:fireflutter/Services/authenticator.dart';
 import 'package:flutter/material.dart';
 import '../AppWidgets/project_tile.dart';
 
@@ -7,6 +8,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,46 +43,56 @@ class _HomeState extends State<Home> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [Text("Settings"), Icon(Icons.settings)],
-            ))
+            )),
+        FlatButton(
+            height: 100.0,
+            onPressed: () {
+              _auth.signOut();
+              Navigator.pushNamed(context, "/");
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [Text("Sign-out"), Icon(Icons.logout)],
+            )),
       ])),
       body: ListView(
         children: <Widget>[
-          ProjectTile("Firm Management System",
-              member1: "Rishabh",
-              member2: "Anurag",
-              member3: "adiyanthy",
-              member4: "Sajal",
-              member5: "shivam"),
-          ProjectTile("Firm Management System",
-              member1: "Rishabh",
-              member2: "Anurag",
-              member3: "adiyanthy",
-              member4: "Sajal",
-              member5: "shivam"),
-          ProjectTile("Firm Management System",
-              member1: "Rishabh",
-              member2: "Anurag",
-              member3: "adiyanthy",
-              member4: "Sajal",
-              member5: "shivam"),
-          ProjectTile("Firm Management System",
-              member1: "Rishabh",
-              member2: "Anurag",
-              member3: "adiyanthy",
-              member4: "Sajal",
-              member5: "shivam"),
-          ProjectTile("Firm Management System",
-              member1: "Rishabh",
-              member2: "Anurag",
-              member3: "adiyanthy",
-              member4: "Sajal",
-              member5: "shivam"),
-          ProjectTile("Firm Management System",
-              member1: "Rishabh",
-              member2: "Anurag",
-              member3: "adiyanthy",
-              member4: "Sajal",
-              member5: "shivam")
+          ProjectTile("Project",
+              member1: "member1",
+              member2: "member2",
+              member3: "member3",
+              member4: "member4",
+              member5: "member5"),
+          ProjectTile("Project",
+              member1: "member1",
+              member2: "member2",
+              member3: "member3",
+              member4: "member4",
+              member5: "member5"),
+          ProjectTile("Project",
+              member1: "member1",
+              member2: "member2",
+              member3: "member3",
+              member4: "member4",
+              member5: "member5"),
+          ProjectTile("Project",
+              member1: "member1",
+              member2: "member2",
+              member3: "member3",
+              member4: "member4",
+              member5: "member5"),
+          ProjectTile("Project",
+              member1: "member1",
+              member2: "member2",
+              member3: "member3",
+              member4: "member4",
+              member5: "member5"),
+          ProjectTile("Project",
+              member1: "member1",
+              member2: "member2",
+              member3: "member3",
+              member4: "member4",
+              member5: "member5")
         ],
       ),
       floatingActionButton: FloatingActionButton(

@@ -5,6 +5,10 @@ class AuthService {
   //signin using email and password
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  Stream<MyUser> get user {
+    return _auth.authStateChanges().map(_userFromFirebaseUser);
+  }
+
   MyUser _userFromFirebaseUser(User user) {
     return user != null ? MyUser(uid: user.uid) : null;
   }
@@ -30,6 +34,14 @@ class AuthService {
     } catch (e) {
       print(e.toString());
       return null;
+    }
+  }
+
+  Future signOut() async {
+    try {
+      return await _auth.signOut();
+    } catch (e) {
+      print(e.toString());
     }
   }
 }
